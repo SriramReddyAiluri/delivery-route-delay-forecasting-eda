@@ -4,58 +4,53 @@
 
 - Project: Delivery Route Delay Forecasting & Logistics Performance Analytics
 - Role: Srirami - Exploratory Data Analysis
-- Status: Initial plan; dataset not yet finalized
+- Status: Initial plan updated after inspection of the supplied cleaned CSV snapshot; final dataset approval and the `Delivery_Time` unit remain to be confirmed
 
 ## Purpose
 
-Explore delivery performance and examine how delays may relate to time, route or distance, traffic, and weather. The analysis will describe patterns in the selected dataset and provide visualizations for the project team.
+Explore delivery duration and examine how it varies with time, estimated distance, traffic, weather, and other available factors. The supplied dataset has no promised delivery time, actual delivery timestamp, or delivery status, so it cannot support promise-based delay or on-time performance measures. The analysis will describe patterns in the selected dataset and provide visualizations for the project team.
 
 This document defines planned analysis only. It does not report findings.
 
 ## Objectives
 
 - Understand the dataset's time period, size, fields, and delivery records.
-- Measure on-time performance and the scale and distribution of delays.
+- Describe the scale and distribution of delivery duration and pickup delay where their definitions support analysis.
 - Compare delivery outcomes across available time, route, distance, traffic, and weather categories.
 - Identify data limitations that could affect interpretation.
 - Prepare visualizations and observations for the project's modeling, evaluation, and dashboard work.
 
 ## Questions to investigate
 
-1. What share of eligible deliveries are on time or delayed?
-2. How large are delays, using typical and high-end delay measures?
-3. Do outcomes differ by day, time period, or season, if those fields exist?
-4. How do delays vary by route, origin, destination, or distance, if available?
-5. Are delays associated with recorded traffic or weather conditions?
-6. Are missing, inconsistent, or unusual values limiting the analysis?
+1. How does delivery duration vary across the available observations?
+2. Do delivery durations differ by order date/time, estimated distance, traffic, weather, or other available categories?
+3. How does the engineered order-to-pickup duration vary, and how is it associated with delivery duration?
+4. Are missing, inconsistent, or unusual values limiting the analysis?
 
 ## Planned KPIs
 
-Calculate a KPI only when the selected dataset has the required fields. Confirm how the dataset defines "on time," scheduled time, and completed delivery before calculating results.
+Calculate a KPI only when the selected dataset has the required fields and documented meanings. For the supplied dataset snapshot, describe duration rather than promise-based delay. `Delivery_Time` is documented as delivery duration, but its unit is not confirmed; do not label it as minutes until the original source documentation confirms that unit.
 
 | KPI | Planned definition | Fields needed |
 |---|---|---|
-| On-time delivery rate | Eligible completed deliveries meeting the dataset's on-time rule, divided by eligible completed deliveries, times 100 | Delivery status and on-time indicator, or scheduled and actual delivery times |
-| Delayed delivery rate | Eligible completed deliveries classified as late, divided by eligible completed deliveries, times 100 | Delivery status and delay indicator, or scheduled and actual delivery times |
-| Average delay (minutes) | Mean of actual delivery time minus scheduled delivery time, in minutes | Scheduled and actual delivery times |
-| Median delay (minutes) | Median of actual delivery time minus scheduled delivery time, in minutes | Scheduled and actual delivery times |
-| 90th percentile delay (minutes) | Delay value at or below which 90 percent of eligible deliveries fall | Scheduled and actual delivery times |
-| Delivery volume | Count of eligible delivery records in the selected period or group | Delivery identifier or one row per delivery; date/time for grouping |
-| Average delivery distance | Mean recorded distance for eligible deliveries | Distance |
-| Completion rate, if supported | Completed deliveries divided by scheduled deliveries, times 100 | Delivery identifier and delivery status |
+| Delivery record count | Number of observed rows overall or within a reported group | One row per delivery or a delivery identifier; grouping field as applicable |
+| Mean / median / 90th percentile delivery duration | Summary of `Delivery_Time`; report the unit as unspecified unless verified | `Delivery_Time`; source documentation for unit labeling |
+| Mean / median pickup delay | Summary of the order-to-pickup duration in minutes | `Pickup_Delay_Minutes` |
+| Estimated straight-line distance | Great-circle distance estimated from store and drop coordinates; not road distance | Valid store and drop coordinates |
+| On-time / late delivery rate | Not supported by this dataset: it has no promised time, actual delivery timestamp, delivery status, or on-time rule | Not available in the supplied dataset |
+| Promise-based delay duration | Not supported by this dataset: scheduled and actual delivery timestamps are absent | Not available in the supplied dataset |
 
 ### Eligibility and interpretation
 
-- Exclude or separately report cancelled, incomplete, or pending deliveries where appropriate.
-- Do not treat missing delivery times as on-time.
-- Preserve negative time differences as early deliveries unless the dataset's rules specify otherwise.
-- State the time zone and units when known.
+- The dataset has no delivery status field, so cancelled, incomplete, or pending records cannot be identified from status.
+- Do not treat missing values as on-time or infer completion status.
+- State units and time zone only when verified; the `Delivery_Time` unit is currently unconfirmed.
 
 ## Analysis approach
 
-1. Inspect the data dictionary and confirm field meanings, units, time zone, and status codes.
+1. Inspect the data dictionary and confirm field meanings, units, time zone, and whether the supplied cleaned CSV is the finalized analysis dataset.
 2. Review record counts, date coverage, missing values, duplicate records, and plausible value ranges.
-3. Confirm how scheduled and actual delivery times define delay.
+3. Confirm the definition and unit of `Delivery_Time`; do not derive a promise-based delay without scheduled and actual delivery times.
 4. Calculate applicable KPIs overall, then compare them across available categories.
 5. Include group sizes with rates and averages so small groups are not overinterpreted.
 6. Record assumptions, exclusions, and limitations with the results.
@@ -64,12 +59,12 @@ Data cleaning and preparation belong to the preprocessing workstream. Coordinate
 
 ## Planned visualizations
 
-- KPI summary for delivery volume, on-time rate, delayed rate, and delay duration.
-- Histogram or box plot of delay duration.
-- Delivery volume and on-time rate over time, if dates are available.
-- Bar chart of delay or on-time rate by route or location, where group sizes are adequate.
-- Scatter plot of distance and delay, if both fields are available.
-- Comparison of delay across traffic and weather categories, if those fields are available.
+- KPI summary for delivery record count and supported duration summaries.
+- Histogram or box plot of delivery duration and pickup delay.
+- Delivery volume and duration over time, if dates are suitable for grouping.
+- Bar chart of duration by location or category, where group sizes are adequate.
+- Scatter plot of estimated straight-line distance and delivery duration, if coordinates are valid.
+- Comparison of delivery duration across traffic and weather categories.
 
 Use clear units, labels, and sample sizes. An association does not by itself prove that a factor caused a delay.
 
@@ -82,11 +77,11 @@ Use clear units, labels, and sample sizes. An association does not by itself pro
 
 ## Dependencies and limitations
 
-- Dataset selection and field availability depend on Jagan's dataset review.
+- Jagan's dataset review and Darshan's confirmation are needed to establish whether this supplied cleaned CSV snapshot is the finalized analysis dataset.
 - KPI definitions may need adjustment to match the selected dataset's documentation.
 - Traffic, weather, route, or distance analysis requires relevant fields in the dataset.
 - EDA describes patterns in available data; it does not establish causation.
 
 ## Document status
 
-Initial EDA plan and KPI definitions prepared for project planning before dataset selection.
+Initial EDA plan updated after inspection of the supplied cleaned CSV snapshot. This update documents scope and limitations, not EDA findings; the final dataset and `Delivery_Time` unit still require confirmation.

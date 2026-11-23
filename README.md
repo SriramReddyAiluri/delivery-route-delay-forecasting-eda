@@ -8,13 +8,13 @@ The EDA work will examine delivery performance and, where the selected dataset s
 
 ## Current status
 
-The initial EDA plan and KPI definitions are documented in `docs/eda_plan.md`. The dataset has not yet been finalized, so this repository does not report data findings or contain analysis results.
+The initial EDA plan and KPI definitions are documented in `docs/eda_plan.md`. Day 1 dataset scope and limitations are recorded in `docs/dataset_scope.md` from the supplied `amazon_delivery_cleaned.csv` snapshot. Confirm with the data-preprocessing workstream that this snapshot is the finalized analysis dataset before treating the profile as final. The cleaned CSV is not committed to this repository.
 
 ## Repository layout
 
 | Folder | Purpose |
 |---|---|
-| `docs/` | EDA plan, KPI definitions, and written analysis notes |
+| `docs/` | EDA plan, dataset scope, KPI definitions, and written analysis notes |
 | `Notebooks/` | Jupyter notebooks for dataset inspection and EDA |
 | `data/` | Project-approved dataset files or data documentation |
 | `outputs/` | EDA charts and other analysis outputs |
