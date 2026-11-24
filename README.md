@@ -8,7 +8,7 @@ The EDA work will examine delivery performance and, where the selected dataset s
 
 ## Current status
 
-The initial EDA plan and KPI definitions are documented in `docs/eda_plan.md`. Day 1 dataset scope and limitations are recorded in `docs/dataset_scope.md` from the supplied `amazon_delivery_cleaned.csv` snapshot. Confirm with the data-preprocessing workstream that this snapshot is the finalized analysis dataset before treating the profile as final. The cleaned CSV is not committed to this repository.
+The initial EDA plan and KPI definitions are documented in `docs/eda_plan.md`. The dataset scope was first profiled on Day 1 and rechecked on Day 2 against Darshan's approved updated cleaned CSV; the CSV is not committed to this repository. Day 2 data quality and univariate findings are documented in `docs/quality_univariate_analysis.md`, with reproducible checks in `Notebooks/quality_univariate_analysis.ipynb`. The `Delivery_Time` unit remains unconfirmed.
 
 ## Repository layout
 
@@ -27,4 +27,4 @@ The initial EDA plan and KPI definitions are documented in `docs/eda_plan.md`. D
 3. Complete the EDA notebook and calculate only KPIs supported by the data.
 4. Save labeled visualizations and summarize evidence-based findings and limitations.
 
-The folder layout follows the team project's repository conventions. EDA analyses and results will be added after the dataset is finalized.
+The folder layout follows the team project's repository conventions. Day 2 quality checks and feature distributions are recorded in the notebook and findings note.

@@ -4,7 +4,7 @@
 
 - Project: Delivery Route Delay Forecasting & Logistics Performance Analytics
 - Role: Srirami - Exploratory Data Analysis
-- Status: Initial plan updated after inspection of the supplied cleaned CSV snapshot; final dataset approval and the `Delivery_Time` unit remain to be confirmed
+- Status: Day 2 quality and univariate profile completed using Darshan's approved updated cleaned CSV; the `Delivery_Time` unit remains unconfirmed
 
 ## Purpose
 
@@ -48,8 +48,8 @@ Calculate a KPI only when the selected dataset has the required fields and docum
 
 ## Analysis approach
 
-1. Inspect the data dictionary and confirm field meanings, units, time zone, and whether the supplied cleaned CSV is the finalized analysis dataset.
-2. Review record counts, date coverage, missing values, duplicate records, and plausible value ranges.
+1. Inspect the data dictionary and confirm field meanings, units, and time zone. The cleaned CSV was approved for EDA on Day 2.
+2. Review record counts, date coverage, missing values, duplicate records, and plausible value ranges. Day 2 results are documented in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`.
 3. Confirm the definition and unit of `Delivery_Time`; do not derive a promise-based delay without scheduled and actual delivery times.
 4. Calculate applicable KPIs overall, then compare them across available categories.
 5. Include group sizes with rates and averages so small groups are not overinterpreted.
@@ -77,11 +77,11 @@ Use clear units, labels, and sample sizes. An association does not by itself pro
 
 ## Dependencies and limitations
 
-- Jagan's dataset review and Darshan's confirmation are needed to establish whether this supplied cleaned CSV snapshot is the finalized analysis dataset.
-- KPI definitions may need adjustment to match the selected dataset's documentation.
+- The updated cleaned CSV was approved for EDA and provided by Darshan; the file is not committed to this repository.
+- The `Delivery_Time` unit and any additional outlier treatment or exclusions still need source/workstream confirmation.
 - Traffic, weather, route, or distance analysis requires relevant fields in the dataset.
 - EDA describes patterns in available data; it does not establish causation.
 
 ## Document status
 
-Initial EDA plan updated after inspection of the supplied cleaned CSV snapshot. This update documents scope and limitations, not EDA findings; the final dataset and `Delivery_Time` unit still require confirmation.
+Day 2 data quality and univariate analysis was completed against the approved updated cleaned CSV. Dataset scope and limitations are documented in `docs/dataset_scope.md`; Day 2 findings are in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`. The `Delivery_Time` unit remains unconfirmed.
