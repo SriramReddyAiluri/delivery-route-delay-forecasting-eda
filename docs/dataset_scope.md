@@ -2,7 +2,7 @@
 
 ## Status and source
 
-This profile was first prepared on Day 1 from `amazon_delivery_cleaned.csv` and rechecked on Day 2 against Darshan's approved copy, `amazon_delivery_cleaned_updated.csv`, supplied on 2026-11-24. Darshan said the cleaned data had no additional changes. The approved CSV is available locally but is not committed to this repository. This profile describes the supplied file; it does not independently certify upstream provenance or cleaning quality.
+This profile was initially prepared from `amazon_delivery_cleaned.csv` and later rechecked against Darshan's approved copy, `amazon_delivery_cleaned_updated.csv`, supplied on 2026-11-24. Darshan said the cleaned data had no additional changes. The approved CSV is available locally but is not committed to this repository. This profile describes the supplied file; it does not independently certify upstream provenance or cleaning quality.
 
 ## Snapshot profile
 
@@ -13,7 +13,7 @@ This profile was first prepared on Day 1 from `amazon_delivery_cleaned.csv` and 
 - **`Delivery_Time` observed range:** 10 to 270; Darshan defines this as delivery duration, but its unit remains unconfirmed.
 - **`Pickup_Delay_Minutes`:** engineered order-to-pickup duration in minutes; 91 values are missing. Among the nonmissing values in this file, the range is 5 to 15 minutes.
 
-These values were rechecked from the approved updated CSV on Day 2 and match the Day 1 snapshot. The Day 2 quality and univariate analysis is documented in `docs/quality_univariate_analysis.md`, with reproducible checks in `Notebooks/quality_univariate_analysis.ipynb`. A zero count of exact duplicate rows does not establish that every record is semantically unique; the meaning and uniqueness of `Order_ID` should be confirmed as part of data quality review.
+These values match the initial profile. The quality and univariate analysis is documented in `docs/quality_univariate_analysis.md`, with reproducible checks in `Notebooks/quality_univariate_analysis.ipynb`. A zero count of exact duplicate rows does not establish that every record is semantically unique; the meaning and uniqueness of `Order_ID` should be confirmed as part of data quality review.
 
 ## Available fields by analysis use
 
@@ -27,6 +27,10 @@ These values were rechecked from the approved updated CSV on Day 2 and match the
 
 The complete column list is in the field-inspection notebook. The supplied file contains 91 rows with missing `Order_Time`, `Weather`, and `Traffic`; the dependent order-time fields `Order_Hour`, `Order_Minute`, `Pickup_Delay_Minutes`, and `Order_Time_Period` are also missing for those rows. Darshan advised retaining these missing values because reliable replacements are unavailable. Store-coordinate missingness is represented as missing rather than the original `(0,0)` values.
 
+## Estimated distance review
+
+The duration comparison estimated great-circle straight-line distance for 40,234 records with valid store and drop coordinates. It is not road distance. A coordinate review found 188 estimated distances above 50 km, with a maximum of 19,692.70 km. These values were retained because no approved exclusion rule exists; interpret the upper distance group cautiously. Full comparisons are in `docs/delivery_duration_by_factors.md`, with reproducible calculations in `Notebooks/delivery_duration_by_factors.ipynb`.
+
 ## Target and KPI boundaries
 
 `Delivery_Time` is the available outcome for descriptive analysis and potential modeling, subject to confirmation of its unit and final target definition. It is a delivery duration, not a delay relative to a promised time.
@@ -37,7 +41,7 @@ Supported descriptive measures include record counts, delivery-duration summarie
 
 ## Remaining interpretation questions
 
-The updated cleaned file was approved for EDA and rechecked on Day 2. Remaining interpretation questions:
+The updated cleaned file was approved for EDA, rechecked against the supplied copy, and used for the duration comparisons. Remaining interpretation questions:
 
 1. Confirm the original source documentation and unit for `Delivery_Time`.
 2. Confirm whether any additional outlier treatment or exclusions are planned.

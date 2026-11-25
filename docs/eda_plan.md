@@ -4,13 +4,13 @@
 
 - Project: Delivery Route Delay Forecasting & Logistics Performance Analytics
 - Role: Srirami - Exploratory Data Analysis
-- Status: Day 2 quality and univariate profile completed using Darshan's approved updated cleaned CSV; the `Delivery_Time` unit remains unconfirmed
+- Status: Duration-by-factor analysis completed using Darshan's approved updated cleaned CSV; the `Delivery_Time` unit remains unconfirmed
 
 ## Purpose
 
 Explore delivery duration and examine how it varies with time, estimated distance, traffic, weather, and other available factors. The supplied dataset has no promised delivery time, actual delivery timestamp, or delivery status, so it cannot support promise-based delay or on-time performance measures. The analysis will describe patterns in the selected dataset and provide visualizations for the project team.
 
-This document defines planned analysis only. It does not report findings.
+This document records the EDA plan and KPI boundaries. Data quality findings and duration comparisons are documented in their respective analysis notes.
 
 ## Objectives
 
@@ -48,8 +48,8 @@ Calculate a KPI only when the selected dataset has the required fields and docum
 
 ## Analysis approach
 
-1. Inspect the data dictionary and confirm field meanings, units, and time zone. The cleaned CSV was approved for EDA on Day 2.
-2. Review record counts, date coverage, missing values, duplicate records, and plausible value ranges. Day 2 results are documented in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`.
+1. Inspect the data dictionary and confirm field meanings, units, and time zone. The approved updated cleaned CSV was selected for EDA.
+2. Review record counts, date coverage, missing values, duplicate records, and plausible value ranges. Data quality and univariate results are documented in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`.
 3. Confirm the definition and unit of `Delivery_Time`; do not derive a promise-based delay without scheduled and actual delivery times.
 4. Calculate applicable KPIs overall, then compare them across available categories.
 5. Include group sizes with rates and averages so small groups are not overinterpreted.
@@ -84,4 +84,4 @@ Use clear units, labels, and sample sizes. An association does not by itself pro
 
 ## Document status
 
-Day 2 data quality and univariate analysis was completed against the approved updated cleaned CSV. Dataset scope and limitations are documented in `docs/dataset_scope.md`; Day 2 findings are in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`. The `Delivery_Time` unit remains unconfirmed.
+Data quality and univariate analysis, followed by duration-by-factor comparisons, were completed against the approved updated cleaned CSV. Quality findings are in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`. Duration findings and group comparisons are in `docs/delivery_duration_by_factors.md` and `Notebooks/delivery_duration_by_factors.ipynb`; charts are saved in `outputs/`. The `Delivery_Time` unit remains unconfirmed.

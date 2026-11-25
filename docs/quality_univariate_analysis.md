@@ -1,4 +1,4 @@
-# Day 2: Data Quality and Univariate Analysis
+# Data Quality and Univariate Analysis
 
 ## Dataset and method
 
