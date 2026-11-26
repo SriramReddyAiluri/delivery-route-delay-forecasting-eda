@@ -31,6 +31,8 @@ The complete column list is in the field-inspection notebook. The supplied file 
 
 The duration comparison estimated great-circle straight-line distance for 40,234 records with valid store and drop coordinates. It is not road distance. A coordinate review found 188 estimated distances above 50 km, with a maximum of 19,692.70 km. These values were retained because no approved exclusion rule exists; interpret the upper distance group cautiously. Full comparisons are in `docs/delivery_duration_by_factors.md`, with reproducible calculations in `Notebooks/delivery_duration_by_factors.ipynb`.
 
+Numeric relationship analysis uses Spearman rank correlations for delivery duration and selected numeric features. The strongest observed pairwise associations are estimated straight-line distance (rho = 0.282, n = 40,234), agent age (rho = 0.274, n = 43,739), and agent rating (rho = -0.259, n = 43,739). The estimated distance calculation excludes rows with missing store coordinates and invalid or missing drop coordinates. These unadjusted associations do not establish causation. Full findings are in `docs/numeric_relationship_analysis.md`, with reproducible calculations and plots in `Notebooks/numeric_relationship_analysis.ipynb`.
+
 ## Target and KPI boundaries
 
 `Delivery_Time` is the available outcome for descriptive analysis and potential modeling, subject to confirmation of its unit and final target definition. It is a delivery duration, not a delay relative to a promised time.

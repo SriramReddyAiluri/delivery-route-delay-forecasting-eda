@@ -4,7 +4,7 @@
 
 - Project: Delivery Route Delay Forecasting & Logistics Performance Analytics
 - Role: Srirami - Exploratory Data Analysis
-- Status: Duration-by-factor analysis completed using Darshan's approved updated cleaned CSV; the `Delivery_Time` unit remains unconfirmed
+- Status: Duration-by-factor comparisons and numeric relationship analysis completed using Darshan's approved updated cleaned CSV; the `Delivery_Time` unit remains unconfirmed
 
 ## Purpose
 
@@ -72,8 +72,10 @@ Use clear units, labels, and sample sizes. An association does not by itself pro
 
 - This EDA plan and KPI definitions.
 - A Jupyter notebook documenting data checks, calculations, and analysis after the dataset is finalized.
-- Labeled visualizations saved in `visualizations/`.
+- Labeled visualizations saved in `outputs/`.
 - A concise summary of findings, assumptions, and limitations based on the actual dataset.
+
+Completed notebooks and labeled charts are saved in `Notebooks/` and `outputs/` following the existing repository layout. Numeric relationship findings are documented in `docs/numeric_relationship_analysis.md` and reproducible in `Notebooks/numeric_relationship_analysis.ipynb`.
 
 ## Dependencies and limitations
 
@@ -84,4 +86,4 @@ Use clear units, labels, and sample sizes. An association does not by itself pro
 
 ## Document status
 
-Data quality and univariate analysis, followed by duration-by-factor comparisons, were completed against the approved updated cleaned CSV. Quality findings are in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`. Duration findings and group comparisons are in `docs/delivery_duration_by_factors.md` and `Notebooks/delivery_duration_by_factors.ipynb`; charts are saved in `outputs/`. The `Delivery_Time` unit remains unconfirmed.
+Data quality and univariate analysis, duration-by-factor comparisons, and numeric relationship analysis were completed against the approved updated cleaned CSV. Quality findings are in `docs/quality_univariate_analysis.md` and `Notebooks/quality_univariate_analysis.ipynb`. Duration findings and group comparisons are in `docs/delivery_duration_by_factors.md` and `Notebooks/delivery_duration_by_factors.ipynb`; charts are saved in `outputs/`. Numeric relationships are documented in `docs/numeric_relationship_analysis.md` and `Notebooks/numeric_relationship_analysis.ipynb`. Distance analysis excludes missing store coordinates and labels the derived measure estimated straight-line distance. The `Delivery_Time` unit remains unconfirmed.
