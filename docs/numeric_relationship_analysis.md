@@ -29,11 +29,11 @@ The coordinate calculation excludes 3,505 rows with missing store coordinates. A
 
 ![Spearman correlation heatmap for delivery duration and numeric features](../outputs/numeric_relationship_correlation_heatmap.png)
 
-*Figure 1. Pairwise Spearman rank correlations. Raw coordinates are excluded; each cell uses pairwise complete records.*
+*Figure 1. Each cell reports Spearman rank correlation and pairwise sample size. Raw coordinates are excluded; each cell uses pairwise complete records.*
 
 ![Delivery duration against agent age, agent rating, order-to-pickup duration, and order hour](../outputs/delivery_duration_numeric_relationships.png)
 
-*Figure 2. Scatter samples with median markers across ordered feature bins. Titles report Spearman correlation and pair count; `Delivery_Time` has no unit label because its unit is unverified.*
+*Figure 2. Each panel plots a deterministic sample of up to 6,000 complete pairs; titles report Spearman correlation, full pair count, and plotted count. Red markers show medians across ordered feature bins. `Delivery_Time` has no unit label because its unit is unverified.*
 
 ![Delivery duration against estimated straight-line distance](../outputs/delivery_duration_estimated_distance_relationship.png)
 
